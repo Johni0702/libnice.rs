@@ -185,7 +185,7 @@ impl Agent {
 		}
 
 		let func_ptr: extern fn() = unsafe {
-			::std::mem::transmute(wrapper::<F>)
+			::std::mem::transmute(&wrapper::<F>)
 		};
 
 		GObjectTrait::on_signal(self, "candidate-gathering-done", cb, func_ptr)
@@ -210,7 +210,7 @@ impl Agent {
 		}
 
 		let func_ptr: extern fn() = unsafe {
-			::std::mem::transmute(wrapper::<F>)
+			::std::mem::transmute(&wrapper::<F>)
 		};
 
 		GObjectTrait::on_signal(self, "reliable-transport-writable", cb, func_ptr)
@@ -239,7 +239,7 @@ impl Agent {
 		}
 
 		let func_ptr: extern fn() = unsafe {
-			::std::mem::transmute(wrapper::<F>)
+			::std::mem::transmute(&wrapper::<F>)
 		};
 
 		GObjectTrait::on_signal(self, "component-state-changed", cb, func_ptr)

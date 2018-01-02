@@ -9,6 +9,6 @@ authors = ["Manuel Schölling <manuel.schoelling@gmx.de>"]
 [dependencies]
 log = "^0.3.6"
 libc = "^0.2"
-bitflags = "^0.7"
+bitflags = "0.7"
 env_logger = "^0.3.3"
 condition_variable = "^0.1"
