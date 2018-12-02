@@ -445,11 +445,9 @@ impl Agent {
 
 		let ctx = ctx.as_ptr() as *mut _;
 
+		let func_ptr  = Some(wrapper::<'b, F> as RecvFunc);
+		let user_data = (callback.deref_mut()) as *mut F as *mut _;
 		let res = unsafe {
-			let func_ptr  = mem::transmute(&wrapper::<'b, F>);
-			//let user_data = (user_data.deref_mut()) as *mut Sender<Vec<u8>> as *mut _;
-			let user_data = (callback.deref_mut()) as *mut F as *mut _;
-
 			ffi::nice_agent_attach_recv(self.ptr, stream_id, component_id,
 				ctx, func_ptr, user_data)
 		};
